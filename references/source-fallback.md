@@ -1,0 +1,21 @@
+# Source Fallback
+
+Use this reference when Toss Invest OpenAPI cannot supply a required field.
+
+## Priority
+
+1. Toss Invest OpenAPI read-only endpoint.
+2. Official exchange or market-operator quote and investor-flow data.
+3. Official issuer or ETF-provider disclosure.
+4. Public quote pages such as Naver Finance or another transparent broker source.
+5. Reputable news or research for context only.
+
+Every fallback record must include source name, URL, observed time, market phase, delay status, and fields not provided. Never treat a search snippet or a news headline as a live quote. Never infer foreign or institutional flow from price, volume, or an order book.
+
+## User Without Toss Access
+
+Ask for or discover only public ticker and market information. Do not request the user's API token in chat. Build a read-only report from public sources and mark account-specific quantities, average costs, cash, and P/L as unavailable unless the user supplies them in a non-secret form.
+
+## Current-Session Label
+
+The report should show one routed basis, such as `한국장 현재 세션` or `미국장 현재 세션`. Preserve the source's session metadata for audit, but do not split the normal report into NXT, regular, and after-market sections unless the user explicitly asks for a comparison.

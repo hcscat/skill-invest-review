@@ -1,0 +1,7 @@
+interface:
+  display_name: "HCSCAT Invest Review"
+  short_description: "Review holdings with current-session market evidence"
+  default_prompt: "Use $hcscat-invest-review to review my holdings using the relevant market window, current prices, investor-flow evidence, and conditional buy or sell bands."
+
+policy:
+  allow_implicit_invocation: true
