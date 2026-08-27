@@ -1,9 +1,9 @@
 ---
-name: hcscat-invest-review
+name: skill-invest-review
 description: Review Korean, pension, and U.S. holdings with read-only market-data checks, current-session routing, investor-flow evidence, and conditional buy or sell bands. Use for current-price checks, portfolio revaluation, stop-loss or partial-sale analysis, averaging-down decisions, and repeatable Toss workflows.
 ---
 
-# HCSCAT Invest Review
+# Skill Invest Review
 
 Use this skill for repeatable, evidence-labeled portfolio reviews. It is a read-only analysis workflow: never place, modify, or cancel an order.
 
@@ -77,6 +77,14 @@ Use one sequential read-only price call for the complete symbol set. Do not issu
 4. Reliable news or research for context, never as the sole source of a live price.
 
 Record the fallback source, URL, timestamp, delay status, and missing fields. Do not imply that a public quote page provides investor flow unless it explicitly labels that data.
+
+## API Provider Boundary
+
+This skill and `scripts/toss_openapi_check.py` are reference implementations for the Toss Securities / Toss Invest OpenAPI. They are not provider-neutral and are not drop-in compatible with another broker or market-data API.
+
+When using another API, update and revalidate the local adapter for authentication, base URL, endpoint paths, request parameters, response-field mapping, market calendar and session rules, rate limits, account and holdings schemas, currencies, and investor-flow semantics. Keep provider-specific adapters and credentials outside this shared skill package. If no compatible adapter exists, use the documented public-source fallback and mark unavailable fields instead of guessing.
+
+The public package includes `scripts/toss_openapi_check.py` as the minimal Toss read-only adapter used by the example commands. It can resolve a private workspace at runtime through `HCSCAT_INVEST_ROOT`; it does not bundle credentials or personal data. `market_collection_benchmark.py` is a local experiment that reads holdings and writes a SQLite output, so it is not required for skill installation or ordinary reviews and remains outside the public package.
 
 ## Investor-Flow Rules
 

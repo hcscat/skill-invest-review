@@ -2,6 +2,11 @@
 
 Use this reference when Toss Invest OpenAPI cannot supply a required field.
 
+The bundled adapter targets the Toss Securities / Toss Invest OpenAPI. A different
+broker or market-data API requires a separate adapter and validation of its
+authentication, endpoint schema, market sessions, field meanings, rate limits,
+and investor-flow definitions before it can be used with this skill.
+
 ## Priority
 
 1. Toss Invest OpenAPI read-only endpoint.
