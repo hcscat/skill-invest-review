@@ -1,0 +1,30 @@
+# Local instructions stay private at every depth.
+AGENTS.md
+AGENTS.override.md
+
+# Device-specific settings and operational data are never part of this skill.
+.env
+.env.*
+# Only sanitized templates qualify for this exception.
+!.env.example
+.DS_Store
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.sqlite*
+*.db
+*.bak
+*.before_*
+*_before_*
+data/
+reports/
+logs/
+backups/
+screenshots/
+attachments/
+secrets/
+private/
+workspace.local.*
+config.local.*

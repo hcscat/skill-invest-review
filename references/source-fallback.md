@@ -2,12 +2,21 @@
 
 Use this reference when Toss Invest OpenAPI cannot supply a required field.
 
+Check the current official endpoint before declaring a field unavailable. An
+older CLI not exposing investor flow is not evidence of provider non-support.
+Apply the same market-time policy to every fallback: do not obtain new U.S.
+prices, news, disclosures or flow outside the allowed regular session, even under
+the label "closing price." Existing local historical values must be dated and
+kept separate from a current portfolio total. Calendars and general FX are allowed.
+
 The bundled adapter targets the Toss Securities / Toss Invest OpenAPI. A different
 broker or market-data API requires a separate adapter and validation of its
 authentication, endpoint schema, market sessions, field meanings, rate limits,
 and investor-flow definitions before it can be used with this skill.
 
 ## Priority
+
+<!-- A new fallback must preserve session restrictions and explicit missing-field labels. -->
 
 1. Toss Invest OpenAPI read-only endpoint.
 2. Official exchange or market-operator quote and investor-flow data.
@@ -24,3 +33,7 @@ Ask for or discover only public ticker and market information. Do not request th
 ## Current-Session Label
 
 The report should show one routed basis, such as `한국장 현재 세션` or `미국장 현재 세션`. Preserve the source's session metadata for audit, but do not split the normal report into NXT, regular, and after-market sections unless the user explicitly asks for a comparison.
+
+Confirm the instrument's own session and suspension/NXT flags; a Korean routing
+window does not make an NXT-ineligible ETF tradable outside KRX regular hours.
+Record unavailable intraday investor flow as `미제공`, never as inferred zero.

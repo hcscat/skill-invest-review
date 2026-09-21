@@ -1,7 +1,9 @@
 interface:
   display_name: "Skill Invest Review"
   short_description: "Review holdings with current-session market evidence"
+  # Keep the invocation name aligned with the SKILL.md frontmatter.
   default_prompt: "Use $skill-invest-review to review my holdings using the relevant market window, current prices, investor-flow evidence, and conditional buy or sell bands."
 
 policy:
+  # Discovery does not authorize orders, commits, or publication.
   allow_implicit_invocation: true

@@ -1,0 +1,27 @@
+# Archive protection also applies if a local-only file is accidentally tracked.
+# These rules affect git archive, not staging or other package builders.
+AGENTS.md export-ignore
+AGENTS.override.md export-ignore
+**/AGENTS.md export-ignore
+**/AGENTS.override.md export-ignore
+.env export-ignore
+.env.* export-ignore
+**/.env export-ignore
+**/.env.* export-ignore
+data/** export-ignore
+reports/** export-ignore
+logs/** export-ignore
+backups/** export-ignore
+screenshots/** export-ignore
+attachments/** export-ignore
+secrets/** export-ignore
+private/** export-ignore
+**/__pycache__/** export-ignore
+*.log export-ignore
+*.sqlite* export-ignore
+*.db export-ignore
+*.bak export-ignore
+*.before_* export-ignore
+*_before_* export-ignore
+workspace.local.* export-ignore
+config.local.* export-ignore
